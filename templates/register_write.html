@@ -1,0 +1,171 @@
+{% extends "base_back.html" %}
+{% load static %}
+
+{% block styles %}
+	<link rel="stylesheet" href="{% static 'content.css' %}">
+	<link rel="stylesheet" href="{% static 'forms.css' %}">
+	<style type="text/css">
+	  .hide{
+	    display:none;
+	  }
+	  .hide.show{
+	    display: block;
+	  }
+	</style>
+ 
+  <script>
+	window.addEventListener('DOMContentLoaded', function() {
+	var select = document.querySelector('#option-select'),
+	hide = document.querySelectorAll('.hide');
+	function change()
+	{
+	[].forEach.call(hide, function(el) {
+	       var add = el.classList.contains(select.value) ? "add" : "remove"
+	       el.classList[add]('show');
+	});
+	}
+	select.addEventListener('change', change);
+	change()
+	});
+  </script>
+
+{% endblock %}
+
+{% block content %}
+
+{#<a href="/register/functions">Создать расписание</a>#}
+{%if error_flag%}
+<label>
+  <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+  <div class="alert error">
+    <span class="alertClose">X</span>
+    <span class="alertText">На текущий момент запись недоступна
+    <br class="clear"/></span>
+  </div>
+</label>
+{%endif%}
+<div class="blok" >
+    <div style="margin:50px;"> </div>
+</div>
+<div class="main_text" ><span>Сегодня {{today|date:"d.m.Y"}}</span></div>
+<div class="blok" align="center">
+{% for day in days%}
+	<table>
+		<tr><th>{{day|date:"d.m"}}</th></tr>
+	{% for stylist in stylists %}
+		{%for block in bloks%}
+		    {%if stylist.id == block.stylist.id and block.date == day%}
+			    {%if block.time.id == first_time%}
+			    	<tr><td>{{stylist.name}} {{stylist.surname}}</td></tr><tr><td><div class="show_blocks">
+			    {%endif%}
+			    {%if block.appointment == null%}
+			    	<div class="empty">
+			    {%else%}
+			    	<div class="busy">
+			    {%endif%}
+                      {{block.time}}
+			    </div>
+		{%endif%}
+	{%endfor%}
+    </div></td></tr>
+    {%endfor%}
+    </table>
+{%endfor%}
+</div>
+<div class="blok">
+	<div style="margin:50px;"> </div>
+</div>
+<form method="post">
+	<div class="blok">
+		<div class="main_text"><p>Выберите день</p></div>
+	</div>
+	<div class="blok" align="center">
+		<div class="selectdiv">
+			<label>
+		  <select name="day-select" id="day-select" aria-required="true">
+		    {%for day in days%}
+		    <option value='{{day|date:"d.m"}}'>{{day|date:"d.m"}}</option>
+		    {%endfor%}
+		  </select>
+		  </label>
+		 </div>
+	</div>
+	<div class="blok">
+		<div class="main_text"><p>Укажите удобное время</p></div>
+	</div>
+	<div align="center">
+	    <div class="box">
+	    <div class="container">
+	    
+	    {%for tm in time%}
+	    <div class="form_radio_btn">
+			<input id="time{{tm.id}}" type="radio" name="time" value="{{tm.id}}" {%if forloop.first%}required{%endif%} >
+			<label for="time{{tm.id}}">{{tm.time_clock|date:"H:i"}}</label>
+		</div>
+	    {%endfor%}
+	    </div>
+	    </div>
+	</div>
+	<div class="blok">
+		<div class="main_text"><p>Выберите стилиста</p></div>
+	</div>
+	<div class="blok" align="center">
+		<div class="selectdiv">
+			<label>
+		  <select name="stylist-select" id="stylist-select" aria-required="true">
+		  	<option value="0" selected>Любой</option>
+		    {% for stylist in stylists %}
+		    <option value='{{stylist.id}}'>{{stylist.name}} {{stylist.surname}}</option>
+		    {%endfor%}
+		  </select>
+		  </label>
+		 </div>
+	</div>
+	<div class="blok">
+			<div class="main_text"><p>Выберите услугу</p></div>
+	</div>
+	<div class="blok" align="center">
+	<div class="selectdiv">
+		<label>
+	  <select name="option-select" id="option-select" aria-required="true">
+	    {%for op in options%}
+	    <option value="{{op.id}}">{{op.name}}</option>
+	    {%endfor%}
+	  </select>
+	  </label>
+	  </div>
+	  {%for op in options%}
+	    <div class="hide {{op.id}} main_text"><p>Примерное время работы {{op.count_time_block}}</p></div>
+	  {%endfor%}
+	</div>
+		<div class="blok">
+	    <div style="margin:100px;"> </div>
+	</div>
+	<div class="blok">
+		<div class="main_text"><p>Введите Ваше имя</p></div>
+	</div>
+	<p align="center"><input class="inputline" name="name" required placeholder="Имя" maxlength="30"></p>
+	<br><br>
+		<div class="blok">
+		<div class="main_text"><p>Введите отчество (если есть)</p></div>
+	</div>
+	<p align="center"><input class="inputline" name="patronymic" placeholder="Отчество" maxlength="30"></p>
+	<br><br>
+	<div class="blok">
+		<div class="main_text"><p>Введите номер телефона</p></div>
+	</div>
+	<p align="center"><input class="inputline" name="phone" required placeholder="89111234567" maxlength="12"></p>
+	<div class="blok">
+	    <div style="margin:150px;"> </div>
+	</div>
+	<div class="main_bg_one" align="center">
+	    {% csrf_token %}
+		<div class="main_button">
+			<button type="submit">Записаться</button>
+		</div>
+	</div>
+</form>
+<div class="blok">
+    <div style="margin:150px;"> </div>
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+{% block head %}
+<head>
+	<meta name="author" content="@NaNColor">
+    <meta name="copyright" content="Все права принадлежат Администратору Celebre">
+	<meta name="robots" content="index, follow">
+	<meta http-equiv="content-language" content="ru">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="keywords" content="Петрозаводск, парикмахерская, Celebre">
+	{% block styles %}
+	<link rel="stylesheet" href="{% static 'content.css' %}">
+	{% endblock %}
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico'%}">
+</head>
+{% endblock %}
+{% block menu %}
+<body>
+<div class="logo">
+	<div>  </div>
+	<a href="../"><img src="{% static 'ava1.webp' %}" alt="logo" class="logo_img"></a>
+    <div style="min-width: 800px">
+        <table  style=" width:80%" bgcolor="#2a244a">
+            <tr>
+                <td align="right" ><img src="{% static 'white_noznitsi.webp' %}" class="pictures"></td>
+                <td align="center" width="320px">
+                    <div class="main_logo_text">
+                        Celebre
+                    </div>
+                </td>
+                <td align="left"><img src="{% static 'white_rascheska.webp' %}" class="pictures"></td>
+            </tr>
+
+        </table>
+        <table style=" width:80%;" bgcolor="#2a244a" >
+            <tr>
+                <td align="center">
+                    <div class="logo_text">ПАРИКМАХЕРСКАЯ</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+	{#<a href="../"><img src="{% static 'celebre1.png' %}" alt="Celebre"></a>#}
+</div>
+{% block backlink %}
+{% endblock %}
+{% endblock %}
+
+{% block page %}
+{% block content %}
+{% endblock %}
+{% endblock %}
+
+{% block footer %}
+<footer class="footer">
+    
+    <ul class="social-icon">
+      <li class="social-icon__item"><a class="social-icon__link" href="https://www.vk.com/celebre_ptz">
+          <ion-icon name="logo-vk"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-whatsapp"></ion-icon>
+        </a></li>
+    </ul>
+    <ul class="menu_footer">
+      <!--<li class="menu_footer__item"><a class="menu_footer__link" href="../">Главная</a></li>
+      <li class="menu_footer__item"><a class="menu_footer__link" href="../register/write">Запись</a></li>
+      <li class="menu_footer__item"><a class="menu_footer__link" href="../about">О нас</a></li>
+      <li class="menu_footer__item"><a class="menu_footer__link" href="../portfolio">Портфолио</a></li>
+      -->
+	</ul>
+	{% block copyright %}
+	<!-- &copy; -->
+	<p class="default_cursor">2023 Celebre | Петрозаводск</p>
+	{% endblock %}
+  </footer>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<!-- Конец footer'а и страницы -->
+{% endblock %}
+</body>
+</html>
+<!-- <a class="share-yt" href="https://www.vk.com/celebre_ptz" target="_blank" rel="nofollow"></a> -->

@@ -1,0 +1,68 @@
+{% extends "base_back.html" %}
+{% load static %}
+
+{% block styles %}
+	<link rel="stylesheet" href="{% static 'content.css' %}">
+	<link rel="stylesheet" href="{% static 'forms.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="blok">
+    <div style="margin:150px;"> </div>
+</div>
+<form method="post">
+	<div class="blok">
+    	<div style="margin:50px;"> </div>
+	</div>
+	<div class="blok">
+		<div class="main_text default_cursor"><p>Укажите удобное время</p></div>
+	</div>
+<div align="center">
+    <div class="box">
+    <div class="container">
+  <ul class="ks-cboxtags">
+    
+    {%for tm in time%}
+    <li><input type="checkbox" id="{{tm.id}}" name="time{{tm.id}}"><label for="{{tm.id}}">{{tm.time_clock|date:"H:i"}}</label></li>
+    {%endfor%}
+    </ul>
+    </div>
+    </div>
+</div>
+<div class="blok">
+		<div class="main_text default_cursor"><p>Выберите услугу</p></div>
+	</div>
+<div class="blok" align="center">
+<div class="selectdiv">
+	<label>
+  <select name="option" id="option-select" required>
+    {%for op in options%}
+    <option value="{{op.id}}">{{op.name}}</option>
+    {%endfor%}
+  </select>
+  </label>
+  </div>
+</div>
+	<div class="blok">
+    <div style="margin:50px;"> </div>
+</div>
+<br><br>
+<div class="blok">
+		<div class="main_text default_cursor"><p>Введите номер телефона</p></div>
+	</div>
+<p align="center"><input class="inputline" name="phone" required placeholder="89111234567" maxlength="12"></p>
+<div class="blok">
+    <div style="margin:150px;"> </div>
+</div>
+<div class="main_bg_one" align="center">
+    {% csrf_token %}
+	<div class="main_button">
+		<button type="submit">Подать заявку</button>
+	</div>
+</div>
+</form>
+<div class="blok">
+    <div style="margin:150px;"> </div>
+</div>
+{#|date:"SHORT_DATE_FORMAT"#}
+{% endblock %}

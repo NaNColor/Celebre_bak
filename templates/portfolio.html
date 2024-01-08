@@ -1,0 +1,22 @@
+{% extends "base_back.html" %}
+{% block content %}
+<div class="blok">
+    <div style="margin:50px;"> </div>
+</div>
+<div class="main_page">
+<div class="blok">
+    <div style="padding:50px;"> </div>
+</div>
+<div class = "portfolio">
+	{%for img in portfolio%}
+		<div class ="img-box crop">
+			<p>{{img.title}}</p>
+			<img src="{{img.image_path.url}}" alt="ID - {{img.id}}" title="Стилист - {{img.stylist}}">
+		</div>
+	{%endfor%}
+</div>
+<div class="blok">
+    <div style="margin:50px;padding:50px"> </div>
+</div>
+</div>
+{% endblock%}

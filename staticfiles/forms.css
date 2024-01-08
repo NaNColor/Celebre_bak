@@ -1,0 +1,252 @@
+@font-face {
+	font-family: 'App-Ital';
+	    src: url('./fonts/appetite-italic.eot'); /* IE 9 Compatibility Mode */
+	    src: url('./fonts/appetite-italic.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+            url('./fonts/appetite-italic.woff2') format('woff2'), /* Super Modern Browsers */
+            url('./fonts/appetite-italic.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+            url('./fonts/appetite-italic.ttf') format('truetype'), /* Safari, Android, iOS */
+            url('./fonts/appetite-italic.svg#appetite-italic') format('svg'); /* Chrome < 4, Legacy iOS */
+    font-display: swap;
+}
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+	width: 50vw;
+	align-self: center;
+	min-height:320px ;
+}
+
+.container {
+    max-width: 640px;
+    font-family: 'App-Ital';
+    font-size: 24px;
+    
+}
+
+ul.ks-cboxtags {
+    list-style: none;
+    padding: 20px;
+}
+ul.ks-cboxtags li{
+  display: inline;
+}
+ul.ks-cboxtags li label{
+    display: inline-block;
+    background-color: rgba(255, 255, 255, .9);
+    border: 4px solid rgba(139, 139, 139, .3);
+    color: #adadad;
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+}
+
+ul.ks-cboxtags li label {
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+
+
+ul.ks-cboxtags li input[type="checkbox"]:checked  {
+    content: "\f00c";
+    transform: rotate(-360deg);
+    transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+    border: 4px solid #a1a4d4;
+    background-color: #2a244a;
+    color: #fff;
+    transition: all .2s;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+  display: block;
+}
+ul.ks-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+ul.ks-cboxtags li input[type="checkbox"]:focus + label {
+  border: 4px solid #e9a1ff;
+}
+ul.ks-cboxtags li input[type="checkbox"]:hover + label {
+	background-color: #5b61b3;
+    color: #fff;
+    transition: all .2s;
+}
+
+.selectdiv {
+  position: relative;
+  /*Don't really need this just for demo styling*/
+  
+  min-width: 200px;
+  margin: 25px 36%;
+}
+
+/* IE11 hide native button (thanks Matt!) */
+/*select::-ms-expand {
+display: none;
+}
+
+.selectdiv:after {
+  content: '<>';
+  font: 17px "Consolas", monospace;
+  color: #333;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  right: 11px;
+  /*Adjust for position however you want
+  top: 18px;
+  padding: 0 0 2px;
+  margin: 0 0 -24vw 0;
+  border-bottom: 1px solid #999;
+  /*left line 
+  
+  position: absolute;
+  pointer-events: none;
+}*/
+
+.selectdiv select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Add some styling */
+  font-family: 'App-Ital';
+  font-size: 24px;
+  display: block;
+  width: max-content;
+  max-width: 600px;
+  min-width: 320px;
+  height: 50px;
+  margin: 5px 5px;
+  padding: 0px 24px;
+  line-height: 1.75;
+  color: #2a244a;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #2a244a;
+  word-break: normal;
+}
+
+.inputline{
+    width:20vw;
+    font-family: 'App-Ital';
+    font-size: 32px;
+    color: #2a244a;
+    border:2px solid #2a244a;
+    border-radius:4px;
+    margin:8px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.3s;
+  }
+  
+.inputline:focus{
+    border-color: #2a244a;
+    box-shadow:0 0 8px 0 #2a244a;
+  }
+.alert {
+  position: relative;
+  top: 10;
+  left: 0;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin: 10px;
+  line-height: 1.8;
+  border-radius: 5px;
+  cursor: hand;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-weight: 400;
+}
+
+.alertCheckbox {
+  display: none;
+}
+
+:checked + .alert {
+  display: none;
+}
+
+.alertText {
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+}
+
+.alertClose {
+  float: right;
+  padding-top: 5px;
+  font-size: 10px;
+}
+
+.clear {
+  clear: both;
+}
+.error {
+  background-color: #FEE;
+  border: 1px solid #EDD;
+  color: #A66;
+}
+.form_radio_btn {
+	display: inline-block;
+	margin-right: 8px;
+	margin-top:8px ;
+	transition: all .2s;
+}
+.form_radio_btn input[type=radio] {
+	display: none;
+}
+.form_radio_btn label {
+	display: inline-block;
+	cursor: pointer;
+	padding: 6px 12px;
+	line-height: 32px;
+	border: 4px solid #a1a4d4;
+	border-radius: 25px;
+	user-select: none;
+}
+ 
+/* Checked */
+.form_radio_btn input[type=radio]:checked + label {
+	background: #2a244a;
+	color: #fff;
+	transition: all .2s;
+}
+ 
+/* Hover */
+.form_radio_btn label:hover {
+	color: #666;
+}
+.show_blocks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.empty
+{
+	border: 1px solid #2a244a;
+	padding: 4px;
+	background-color: #74E86899;	
+}
+.busy
+{
+	border: 1px solid #2a244a;
+	padding: 4px;
+	background-color: #FD727999;
+}

@@ -1,0 +1,23 @@
+{% extends "base_back.html" %}
+{% load static %}
+
+{% block content %}
+<div class="blok">
+    <div style="margin:150px;"> </div>
+</div>
+<form method="post">
+    {% csrf_token %}
+    <p>Функция:</p> 
+    <select name="passwd" id="passwd" required>
+    <option value="1">Продлить расписание</option>
+    <option value="2">Сгенерировать блоки</option>
+    <option value="3">Удалить не нужные блоки</option>
+    <option value="4">Удалить расписание до сегодня</option>
+  </select>
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+<div class="blok">
+    <div style="margin:150px;"> </div>
+</div>
+{% endblock %}

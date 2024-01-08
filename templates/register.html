@@ -1,0 +1,34 @@
+{% extends "base_back.html" %}
+{% load static %}
+
+{% block content %}
+<div class="blok">
+    <div style="margin:100px;"> </div>
+</div>
+{#<a href="/register/functions">Создать расписание</a>#}
+<div class="blok">
+	<div class="main_text default_cursor">
+	<p>Вы можете записаться по телефону <span class="phone_text"><a href="tel:+79114014243">8(911)401-42-43</a></span></p>
+	<p>Или оставте заявку на звонок и мы вам перезвоним для уточнения записи</p>
+	</div>
+</div>
+<div class="blok">
+    <div style="margin:100px;"> </div>
+</div>
+<div class="main_bg_two" align="center">
+	<form method="post">
+    {% csrf_token %}
+	<div class="main_button">
+		<button type="submit" name="phone">Подать заявку</button>
+	</div>
+	<div style="margin:50px;"> </div>
+	<div class="main_button">
+		<button type="submit" name="online">Записаться</button>
+	</div>
+	<div style="margin:50px;"> </div>
+	</form>
+</div>
+<div class="blok">
+    <div style="margin:150px;"> </div>
+</div>
+{% endblock %}
