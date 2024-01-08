@@ -134,9 +134,10 @@ USE_TZ = True
 
 
 TELEGRAM = {
-    'bot_token': '5725657007:AAH-G1CdWkF-8WyTN4M_HhLddCeJK8NzLZU',
-    'channel_name': 'celebre_ptz',
+    'bot_token': 'secret',
+    'channel_name': 'secret',
 }
+#secret in another place
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
