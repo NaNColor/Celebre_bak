@@ -85,9 +85,9 @@ DATABASES = {
     'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
         'ENGINE': 'django.db.backends.mysql',
-        'NAME'    : 'cv74471_celebre',
-        'USER'    : 'cv74471_celebre',
-        'PASSWORD': 'Ctrhtn7*1',
+        'NAME'    : '******_celebre',
+        'USER'    : '******_celebre',
+        'PASSWORD': '********',
         'HOST'    : 'localhost',
         'PORT'    : '3306',
         'OPTIONS': {
